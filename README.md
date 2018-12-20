@@ -1,3 +1,5 @@
+English | [中文](/README_cn.md)
+
 # Nebcli
 The NebulaBootstrap cluster management command line interface. nebcli created with [click](https://github.com/pallets/click).
 
@@ -42,4 +44,7 @@ instructions:
         show node_detail ${node_type} ${node_identify}  # Show details of the specified node of the specified type.
 ```
 
+## Related Project
+   * [Nebula](https://github.com/Bwar/Nebula)
+   * [NebulaBootstrap](https://github.com/Bwar/NebulaBootstrap)
 

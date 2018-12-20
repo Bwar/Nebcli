@@ -1,3 +1,5 @@
+[English](/README.md) | 中文
+
 # Nebcli
 NebulaBootstrap集群命令行管理工具。
 nebcli是用python基于[click](https://github.com/pallets/click)编写的NebulaBootstrap集群命令行管理工具。
@@ -42,4 +44,9 @@ nebcli --url http://192.168.157.175:16088/admin
         show node_detail ${node_type}                   # 查看指定类型的节点信息详情（IP地址、工作进程数等）
         show node_detail ${node_type} ${node_identify}  # 查看指定类型指定节点的信息详情
 ```
+
+## 相关项目
+   * [Nebula](https://github.com/Bwar/Nebula)
+   * [NebulaBootstrap](https://github.com/Bwar/NebulaBootstrap)
+
 
