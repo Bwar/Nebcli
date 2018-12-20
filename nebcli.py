@@ -24,7 +24,7 @@ class Nebcli(object):
             param_num = len(param)
             if param_num == 1:
                 if param[0] == "node_report" or param[0] == "node_detail":
-                    click.echo("invalid param num for \"show %s\"", param[0])
+                    click.secho("invalid param num for \"show %s\"!" % param[0], fg='red')
                 else:
                     req_json = (
                         """
@@ -53,7 +53,7 @@ class Nebcli(object):
                         click.echo("%s" % result_string)
             elif param_num == 2:
                 if param[0] == "ip_white":
-                    click.echo("invalid param num for \"show %s\"", param[0])
+                    click.secho("invalid param num for \"show %s\"", param[0], fg='red')
                 else:
                     req_json = (
                         """
@@ -153,11 +153,11 @@ class Nebcli(object):
                     else:
                         click.echo("%s" % result_string)
                 else:
-                    click.echo("invalid param num for \"show %s\"", param[0])
+                    click.secho("invalid param num for \"show %s\"", param[0], fg='red')
             else:
-                click.echo("invalid param num for \"show\"")
+                click.secho("invalid param num for \"show\"", fg='red')
         else:
-            click.echo("invalid param: %s" % param[0])
+            click.secho("invalid param: %s" % param[0], fg='red')
 
 
 @click.group(invoke_without_command=True)
@@ -175,22 +175,44 @@ def cli(ctx, url):
             if invoked_cmd[0] == "quit" or invoked_cmd[0] == "exit":
                 exit(0)
             elif invoked_cmd[0] == "show":
-                ctx.command.show(invoked_cmd[1:])
+                if len(invoked_cmd) > 1:
+                    ctx.obj.show(invoked_cmd[1:])
+                else:
+                    click.secho("invalid param num for \"show\"!", fg='red')
             else:
-                click.echo("invalid cmd \"%s\"!" % invoked_cmd[0])
+                click.secho("invalid cmd \"%s\"!" % invoked_cmd[0], fg='red')
     else:
         pass
 
 
 @cli.command()
-@click.argument("target")
 @click.argument("args", nargs=-1)
 @click.pass_context
-def show(ctx, target, args):
-    param = []
-    param.append(target)
-    param.extend(args)
-    ctx.obj.show(param)
+def show(ctx, args):
+    """
+    \b
+    Show usage:
+        show target [args]
+    \b
+    The value of target is as follows:
+        ip_white
+        subscription
+        nodes
+        node_report
+        node_detail
+    \b
+    Valid command as follows:
+        show ip_white 
+        show subscription
+        show subscription ${node_type}
+        show nodes
+        show nodes ${node_type}
+        show node_report ${node_type}
+        show node_report ${node_type} ${node_identify}
+        show node_detail ${node_type}
+        show node_detail ${node_type} ${node_identify}
+    """
+    ctx.obj.show(args)
 
 if __name__ == '__main__':
     cli()
