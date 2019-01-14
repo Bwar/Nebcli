@@ -12,7 +12,7 @@ class Nebcli(object):
     def __init__(self, url):
         self.url = url
         self.show_sub_cmd = (
-            "ip_white", "subscription", "nodes", "node_report", "node_detail")
+            "ip_white", "subscription", "nodes", "node_report", "node_detail", "beacon")
 
     def exec_cmd(self, req_json):
         response = requests.post(self.url, data=req_json)
@@ -49,10 +49,18 @@ class Nebcli(object):
                             click.echo("%s:" % nodes["node_type"])
                             for node in nodes["node"]:
                                 click.echo("\t%s" % node)
+                    elif param[0] == "beacon":
+                        if len(result["data"]) > 0:
+                            click.echo("node\tis_leader\tis_online")
+                        for node in result["data"]:
+                            click.echo("%s\t%s\t%s"
+                                       % (node["identify"],
+                                          node["leader"],
+                                          node["online"]))
                     else:
                         click.echo("%s" % result_string)
             elif param_num == 2:
-                if param[0] == "ip_white":
+                if param[0] == "ip_white" or param[0] == "beacon":
                     click.secho("invalid param num for \"show %s\"", param[0], fg='red')
                 else:
                     req_json = (

@@ -10,7 +10,6 @@ nebcli核心仅一个脚本__nebcli.py__，脚本兼容python2和python3，如�
 
 ```bash
 pip install --editable .
-
 ```
 
 安装完毕即可执行命令nebcli查看效果：
@@ -34,15 +33,16 @@ nebcli --url http://192.168.157.175:16088/admin
 
 命令说明：
 ```bash
-        show ip_white                                   # 查看接入集群的IP白名单
-        show subscription                               # 查看节点类型订阅信息
-        show subscription ${node_type}                  # 查看指定节点类型的订阅信息
-        show nodes                                      # 查看在线节点信息
-        show nodes ${node_type}                         # 查看指定节点类型的在线节点信息
-        show node_report ${node_type}                   # 查看指定类型的节点工作状态（负载、收发数据量等）
-        show node_report ${node_type} ${node_identify}  # 查看指定节点类型指定节点工作状态
-        show node_detail ${node_type}                   # 查看指定类型的节点信息详情（IP地址、工作进程数等）
-        show node_detail ${node_type} ${node_identify}  # 查看指定类型指定节点的信息详情
+show ip_white                                   # 查看接入集群的IP白名单
+show subscription                               # 查看节点类型订阅信息
+show subscription ${node_type}                  # 查看指定节点类型的订阅信息
+show nodes                                      # 查看在线节点信息
+show nodes ${node_type}                         # 查看指定节点类型的在线节点信息
+show node_report ${node_type}                   # 查看指定类型的节点工作状态（负载、收发数据量等）
+show node_report ${node_type} ${node_identify}  # 查看指定节点类型指定节点工作状态
+show node_detail ${node_type}                   # 查看指定类型的节点信息详情（IP地址、工作进程数等）
+show node_detail ${node_type} ${node_identify}  # 查看指定类型指定节点的信息详情
+show beacon                                     # 查看Beacon节点
 ```
 
 ## 相关项目
