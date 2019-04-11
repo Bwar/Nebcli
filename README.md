@@ -42,6 +42,23 @@ show node_report ${node_type} ${node_identify}  # Show the specified node type t
 show node_detail ${node_type}                   # Show node information details (IP address, number of worker processes, etc.) of the specified type.
 show node_detail ${node_type} ${node_identify}  # Show details of the specified node of the specified type.
 show beacon                                     # Show beacon nodes.
+get node_config ${node_identify}
+get node_custom_config ${node_identify}
+get custom_config ${node_identify} ${config_file_relative_path} ${config_file_name}
+set node_config ${node_type} ${config_file_content}
+set node_config ${node_type} ${node_identify} ${config_file_content}
+set node_config_from_file ${node_type} ${config_file}
+set node_config_from_file ${node_type} ${node_identify} ${config_file}
+set node_custom_config ${node_type} ${config_content}
+set node_custom_config ${node_type} ${node_identify} ${config_content}
+set node_custom_config_from_file ${node_type} ${config_file}
+set node_custom_config_from_file ${node_type} ${node_identify} ${config_file}
+set custom_config ${node_type} ${config_file_name} ${config_file_content}
+set custom_config ${node_type} ${config_file_relative_path} ${config_file_name} ${config_file_content}
+set custom_config ${node_type} ${node_identify} ${config_file_relative_path} ${config_file_name} ${config_file_content}
+set custom_config_from_file ${node_type} ${config_file}
+set custom_config_from_file ${node_type} ${config_file_relative_path} ${config_file}
+set custom_config_from_file ${node_type} ${node_identify} ${config_file_relative_path} ${config_file}
 ```
 
 ## Related Project
