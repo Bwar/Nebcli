@@ -43,13 +43,24 @@ show node_report ${node_type} ${node_identify}  # 查看指定节点类型指定
 show node_detail ${node_type}                   # 查看指定类型的节点信息详情（IP地址、工作进程数等）
 show node_detail ${node_type} ${node_identify}  # 查看指定类型指定节点的信息详情
 show beacon                                     # 查看Beacon节点
-get node_config ${node_identify}
-get node_custom_config ${node_identify}
+get node_config ${node_identify}                # 获取指定节点的节点配置文件内容
+get node_custom_config ${node_identify}         # 获取指定节点的节点配置文件中用户自定义部分内容
+
+# 获取指定节点指定配置文件内容
 get custom_config ${node_identify} ${config_file_relative_path} ${config_file_name}
+
+# 设置属于某种类型的所有节点的节点配置文件
 set node_config ${node_type} ${config_file_content}
+
+# 设置某节点的节点配置文件
 set node_config ${node_type} ${node_identify} ${config_file_content}
+
+# 通过本地文件的内容设置属于某种类型的所有节点的节点配置文件
 set node_config_from_file ${node_type} ${config_file}
+
+# 通过本地文件的内容设置某节点的节点配置文件
 set node_config_from_file ${node_type} ${node_identify} ${config_file}
+
 set node_custom_config ${node_type} ${config_content}
 set node_custom_config ${node_type} ${node_identify} ${config_content}
 set node_custom_config_from_file ${node_type} ${config_file}
