@@ -273,7 +273,7 @@ class Nebcli(object):
                 with open(param[param_num - 1], 'rb') as f:
                     read_content = f.read()
                     #file_content = base64.b64encode(read_content.encode('utf-8')).decode('utf-8')
-                    file_content = base64.b64encode(read_content.decode('utf-8')
+                    file_content = base64.b64encode(read_content.decode('utf-8'))
                     if param_num == 3:
                         req_json = (
                             """
@@ -366,7 +366,7 @@ class Nebcli(object):
                 with open(param[param_num - 1], 'rb') as f:
                     read_content = f.read()
                     #file_content = base64.b64encode(read_content.encode('utf-8')).decode('utf-8')
-                    file_content = base64.b64encode(read_content.decode('utf-8')
+                    file_content = base64.b64encode(read_content.decode('utf-8'))
                     if param_num == 3:
                         req_json = (
                             """
